@@ -14,8 +14,7 @@ const PORT = process.env.PORT || 3001;
 
 //=============================================
 
-const sequalize = require('./config/connection');
-const { Sequelize } = require('sequelize/types');
+const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
@@ -23,7 +22,7 @@ const sess = {
     cookie: {},
     resave: false,
     saveUninitialized: true,
-    store: new Sequelize({
+    store: new SequelizeStore({
         db: sequelize
     })
 };
