@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
             'id',
             'title',
             'post_content',
-            'user_id'
+            'created_at'
         ],
         include: [
             {
@@ -44,20 +44,13 @@ router.get('/:id', (req, res) => {
         'post_content',
         'created_at'
         ],
-        include: [
-            {
-                model: Comment,
-                attributes: ['id', 'comment_text', 'user_id', 'post_id', 'created_at'],
-                include: {
-                    model: User,
-                    attributes: ['username']
-                }
-            },
+        include: 
+            
             {
                 model: User,
                 attributes: ['username']
             }
-        ]
+        
     }).then(dbPostData => {
         if (!dbPostData) {
             res.status(404).json({ message: 'No user found with this ID' });
