@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { User, Post, Comment } = require("../../models");
+const withAuth = require('../../utils/auth');
 
 // get all users
 // /api/users
@@ -23,22 +24,16 @@ router.get("/:id", (req, res) => {
     include: [
       {
         model: Post,
-        attributes: ["id", "title", "post_url", "created_at"],
+        attributes: ['id', 'title', 'post_content', 'created_at'],
       },
       {
         model: Comment,
-        attributes: ["id", "comment_text", "created_at"],
+        attributes: ['id', 'comment_text', 'created_at'],
         include: {
           model: Post,
-          attributes: ["title"],
+          attributes: ['title'],
         },
-      },
-      {
-        model: Post,
-        attributes: ["title"],
-        through: Vote,
-        as: "voted_posts",
-      },
+      },      
     ],
   })
     .then((dbUserData) => {
@@ -83,7 +78,7 @@ router.post("/login", (req, res) => {
     where: {
       email: req.body.email,
     },
-  }).then((dbUserData) => {
+  }).then(dbUserData => {
     if (!dbUserData) {
       res.status(400).json({ message: "No user with that email address!" });
       return;
@@ -117,7 +112,7 @@ router.post("/logout", (req, res) => {
 });
 
 //api/users/1
-router.put("/:id", (req, res) => {
+router.put("/:id", withAuth, (req, res) => {
   // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
 
   // pass in req.body instead to only update what's passed through
@@ -140,7 +135,7 @@ router.put("/:id", (req, res) => {
     });
 });
 //api/users/1
-router.delete("/:id", (req, res) => {
+router.delete("/:id", withAuth, (req, res) => {
   User.destroy({
     where: {
       id: req.params.id,

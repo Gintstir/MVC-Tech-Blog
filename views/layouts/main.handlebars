@@ -6,26 +6,29 @@
     <title>MVC-Tech-Blog</title>
     <link rel="stylesheet" href="/stylesheets/style.css" class="rel">
 </head>
-<body>
-    <div>
-        <header>
-            <h1>
-                <a href="/">MVC Tech-Blog</a> 
-            </h1>
+<body>    
+    <header>    
+        <nav>
+            <a href="/">MVC Tech-Blog</a> 
+            {{#if loggedIn}}
+            <a href="/dashboard">Dashboard</a>                            
+            <a id="logout">Logout</button>
+            {{else}}
+            <a href="/login">Login</a>
+            {{/if}}
         
-            <nav>
-                <a href="/dashboard">Dashboard</a>
-                <a href="/login">Login</a>
-            
-            </nav>
-        </header>
-        <main>
-            {{{ body }}}
-        </main>
-        <footer>
-            MVC - Tech - Blog © Gintautas Stirbys, 2021 ♥
-        </footer>
-    </div>
-    <script src=""></script>
+        </nav>
+    </header
+    >
+    <main>
+        {{{ body }}}
+    </main>
+
+    <footer>
+        MVC - Tech - Blog © Gintautas Stirbys, 2021 ♥
+    </footer>
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
 </body>
 </html>

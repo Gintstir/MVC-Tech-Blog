@@ -7,6 +7,8 @@ const session = require('express-session');
 //this sets up Handlebars.js functionality
 const exphbs = require('express-handlebars');
 
+const routes = require('./controllers');
+
 //start off connection to server===============
 
 const app = express();
@@ -19,7 +21,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
     secret: process.env.SECRET,
-    cookie: {},
+    cookie: { maxAge: 5 * 60 * 1000 },
     resave: false,
     saveUninitialized: true,
     store: new SequelizeStore({
@@ -46,6 +48,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(require('./controllers/'));
+app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log(`Now Listening on Port: ${PORT}!`));
