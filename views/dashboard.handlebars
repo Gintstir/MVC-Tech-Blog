@@ -2,8 +2,8 @@
 
 {{#if posts.length}}
 <section>
-  <h2>Your Posts <br> (click title to edit post) </h2>
-  <ul>
+  <p class="text-center fs-3">Your Posts | click title to edit post <p>
+  <ul class="list-unstyled mx-2 my-2">
     {{#each posts as |post|}}
     <li>
       {{> post-edit post}}
@@ -12,4 +12,6 @@
   </ul>
 </section>
 {{/if}}
-<a href="/dashboard/create-post"><button class="create-btn">Create Post</button></a>
+<div class="col text-center">
+  <a href="/dashboard/create-post"><button class="create-btn btn btn-primary">Create New Post + </button></a>
+</div>

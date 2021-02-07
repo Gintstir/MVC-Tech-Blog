@@ -1,3 +1,25 @@
 body {
-    background-color: #a6fdd4;
+    background-color:#dbe9eeff;
 }
+
+#title {
+    font-family: 'Poppins', sans-serif;
+    color: #c84630ff;
+}
+
+/* CSS HEX
+--xanadu: #7d8570ff;
+--independence: #49516fff;
+--alice-blue: #dbe9eeff;
+--vermilion: #c84630ff;
+--sizzling-sunrise: #ffda22ff; 
+
+ CSS HSL 
+--xanadu: hsla(83, 9%, 48%, 1);
+--independence: hsla(227, 21%, 36%, 1);
+--alice-blue: hsla(196, 36%, 90%, 1);
+--vermilion: hsla(9, 61%, 49%, 1);
+--sizzling-sunrise: hsla(50, 100%, 57%, 1);
+
+
+*/

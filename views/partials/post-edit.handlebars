@@ -1,9 +1,10 @@
-<article class="post">
-    <div class="title">
-        <a href="/dashboard/edit/{{id}}" id="title">{{title}}</a>
-        <p class="user">Posted by {{user.username}} on {{format_date created_at}}</p>
+<article class="post border border-info mb-4 mt-4 rounded border border-2 bg-white">
+    <div class="title mb-2">
+        <a href="/dashboard/edit/{{id}}" class="text-decoration-none fs-4" id="title"><strong>{{title}}</strong></a>
+        
     </div>
     <div class="content">
-        <p id="content">{{post_content}}</p>
+        <p id="content" class="fs-5">{{post_content}}</p>
+        <p class="user text-center">Posted on {{format_date created_at}}</p>
     </div>
 </article>
