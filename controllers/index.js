@@ -6,6 +6,8 @@ we'll receive a 404 error indicating we have requested an incorrect resource, an
 
 
 const router = require('express').Router();
+
+
 const apiRoutes = require('./api');
 const homeRoutes = require('./home-routes.js')
 const dashboardRoutes = require('./dashboard-routes.js');

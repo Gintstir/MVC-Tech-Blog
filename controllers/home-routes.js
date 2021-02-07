@@ -52,15 +52,17 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-router.get('post/:id', (req, res) => {
+router.get('/post/:id', (req, res) => {
+    console.log('=============finding one post===================')
     Post.findOne({
       where: {
           id: req.params.id
       },
-      attrubutes: [
+      attributes: [
           'id',
           'title',
           'post_content',
+          'user_id',
           'created_at'
       ],
       include: [
