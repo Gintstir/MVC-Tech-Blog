@@ -1,15 +1,24 @@
 <div class="single-post">{{> post-info post}}</div>
 
 {{#if loggedIn}}
-<form class="comment-form">
-  <div>
-    <textarea name="comment-body"></textarea>
-  </div>
 
-  <div>
-    <button type="submit" class="comment-btn">add comment</button>
+<div class="row">
+  <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+    <div class="px-2">
+      <form class="comment-form">
+        <div class="mb-3 text-center">
+          <label for="comment-body" class="form-label fs-4">Comment</label>
+          <textarea name="comment-body" class="form-control" id="comment-body" rows="3"></textarea>
+        </div>
+
+        <div class="col text-center">
+          <button type="submit" class="comment-btn btn btn-primary">Add Comment</button>
+        </div>
+      </form>
+    </div>
   </div>
-</form>
+</div>
+
 {{/if}}
 
 {{> comments post.comments}}
