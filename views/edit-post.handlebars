@@ -1,17 +1,25 @@
-<article>
-    <h2>
-        Edit Post
-    </h2>
-    <form class="edit-post-form">
-        <div>
-            <input name="post-title" type="text" value="{{post.title}}" />
+<div class="row">
+    <div class="">
+        <div class="px-2">
+            <article>                
+                <form class="edit-post-form">
+                    <h2>Edit Post</h2>
+                    <div class="mb-3">
+                        <label for="post-title" class="form-label fs-4">Title</label>
+                        <input name="post-title" class="form-control"type="text" value="{{post.title}}" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="post-content" class="form-label fs-4">Content</label>
+                        <input name="post-content" class=" form-control" type="text" rows="3" value="{{post.post_content}}" />
+                    </div>
+                    <div class="col text-center">
+                        <button type="submit" class="btn btn-success">Update post</button>
+                        <button type="button" class="delete-post-btn btn btn-danger">Delete post</button>
+                    </div>
+                </form>
+            </article>
         </div>
-        <div>
-            <input name="post-content" type="text" value="{{post.post_content}}" />
-        </div>
-        <button type="submit">Save post</button>
-        <button type="button" class="delete-post-btn">Delete post</button>
-    </form>
-</article>
+    </div>
+</div>
 <script src="/javascript/edit-post.js"></script>
 <script src="/javascript/delete-post.js"></script>

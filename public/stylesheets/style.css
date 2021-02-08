@@ -7,6 +7,18 @@ body {
     color: #c84630ff;
 }
 
+body, wrapper {
+    min-height:100vh;
+}
+ 
+.flex-fill {
+    flex:1 1 auto;
+}
+
+.breadcrumb {
+    text-decoration: none;
+}
+
 /* CSS HEX
 --xanadu: #7d8570ff;
 --independence: #49516fff;
