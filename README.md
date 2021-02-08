@@ -5,7 +5,7 @@ https://vast-retreat-80302.herokuapp.com/
 
 ## **Description**
 
-MVC-Tech-Blog is a full-stack blogging app.<br> It takes user generated posts and comments and organizes them is a easy to read, fun to use way.
+MVC-Tech-Blog is a full-stack blogging app.<br> It takes user generated posts and comments and organizes them in an easy to read format.
 
 
 
@@ -65,7 +65,7 @@ To use/try this application, first- `clone` or `fork/clone` this repository(see 
 
 ## **Usage-instructions**
 
-
+If any changes are made to the Database, you must rebuild the db.  To do so, in `server.js` change `force: false` to `force: true` them run the command `npm start`.  Now change `force: true` back to `force: false` and rerun the `npm start` command.  Your changes should have taken effect.  If you are publishing to Heroku, changes must also be pushed to Heroku with the command `git push heroku main`.  The updated site can be viewed using `heroku open` in the terminal.  
 
 
 
