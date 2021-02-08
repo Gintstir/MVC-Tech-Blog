@@ -2,9 +2,11 @@ const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { Post, User, Comment } = require('../../models');
 
-//get all users
+//get all posts
 router.get('/', (req, res) => {
-    console.log('=============================Getting all users=================');
+    console.log('=================================');
+    console.log('==========Get all posts==========');
+    console.log('=================================');
     Post.findAll({
         attributes: [
             'id',
@@ -34,6 +36,9 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
+    console.log('=================================');
+    console.log('==========Get one Post===========');
+    console.log('=================================');
     Post.findOne({
         where: {
             id: req.params.id
@@ -65,6 +70,9 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+    console.log('=================================');
+    console.log('==========Create Post============');
+    console.log('=================================');
     /*expect:
     "title": "Test Post",
     "post_content": "Lorem ipsum...",
@@ -83,6 +91,9 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
+    console.log('=================================');
+    console.log('===========Update Post===========');
+    console.log('=================================');
     Post.update(
         {
             title: req.body.title,
@@ -107,6 +118,9 @@ router.put('/:id', (req, res) => {
 })
 
 router.delete('/:id', (req, res) => {
+    console.log('=================================');
+    console.log('===========Delete Post===========');
+    console.log('=================================');
     Post.destroy({
         where: {
             id: req.params.id

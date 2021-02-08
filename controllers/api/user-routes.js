@@ -5,6 +5,9 @@ const withAuth = require('../../utils/auth');
 // get all users
 // /api/users
 router.get("/", (req, res) => {
+  console.log('=================================');
+  console.log('==========Get all Users==========');
+  console.log('=================================');
   User.findAll({
     attributes: { exclude: ["password"] },
   })
@@ -16,6 +19,9 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
+  console.log('=================================');
+  console.log('==========Get one User===========');
+  console.log('=================================');
   User.findOne({
     attributes: { exclude: ["password"] },
     where: {
@@ -50,6 +56,9 @@ router.get("/:id", (req, res) => {
 });
 //loaclhost:3001/api/users
 router.post("/", (req, res) => {
+  console.log('=================================');
+  console.log('==========Create User============');
+  console.log('=================================');
   // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
   User.create({
     username: req.body.username,
@@ -73,6 +82,9 @@ router.post("/", (req, res) => {
 
 //api/users/login
 router.post("/login", (req, res) => {
+  console.log('=================================');
+  console.log('============Logging In===========');
+  console.log('=================================');
   // expects {email: 'lernantino@gmail.com', password: 'password1234'}
   User.findOne({
     where: {
@@ -102,6 +114,9 @@ router.post("/login", (req, res) => {
 });
 
 router.post("/logout", (req, res) => {
+  console.log('=================================');
+  console.log('===========Logging Out===========');
+  console.log('=================================');
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
@@ -113,6 +128,9 @@ router.post("/logout", (req, res) => {
 
 //api/users/1
 router.put("/:id", withAuth, (req, res) => {
+  console.log('=================================');
+  console.log('==========Updating User==========');
+  console.log('=================================');
   // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
 
   // pass in req.body instead to only update what's passed through
@@ -136,6 +154,9 @@ router.put("/:id", withAuth, (req, res) => {
 });
 //api/users/1
 router.delete("/:id", withAuth, (req, res) => {
+  console.log('=================================');
+  console.log('==========Deleting User==========');
+  console.log('=================================');
   User.destroy({
     where: {
       id: req.params.id,

@@ -2,7 +2,9 @@ const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
 
 router.get('/', (req, res) => {
-    console.log('==========Find-All-Posts==========');
+    console.log('=================================');
+    console.log('==========Get all Posts==========');
+    console.log('=================================');
     Post.findAll({
         attributes: [
             'id',
@@ -53,7 +55,9 @@ router.get("/login", (req, res) => {
 });
 
 router.get('/post/:id', (req, res) => {
-    console.log('=============finding one post===================')
+    console.log('=================================');
+    console.log('==========Get one Post===========');
+    console.log('=================================');
     Post.findOne({
       where: {
           id: req.params.id
@@ -84,8 +88,10 @@ router.get('/post/:id', (req, res) => {
             res.status(404).json({message: 'No post found with that ID' })
             return;
         }
+        //serialize the data
         const post = dbPostData.get({ plain: true });
 
+        //pass data to the template
         res.render('single-post', {
             post,
             loggedIn: req.session.loggedIn

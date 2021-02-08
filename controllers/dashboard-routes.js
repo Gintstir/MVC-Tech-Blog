@@ -4,8 +4,10 @@ const withAuth = require("../utils/auth");
 
 // get all posts for dashboard
 router.get("/", withAuth, (req, res) => {
-  console.log(req.session);
-  console.log("======================");
+  // console.log(req.session);
+  console.log('=================================');
+  console.log('==========Get all Posts==========');
+  console.log('=================================');
   Post.findAll({
     where: {
       user_id: req.session.user_id,
@@ -43,6 +45,9 @@ router.get("/", withAuth, (req, res) => {
 
 //get one post to edit
 router.get("/edit/:id", withAuth, (req, res) => {
+  console.log('=================================');
+  console.log('==========Get one Post===========');
+  console.log('=================================');
   Post.findOne({
       where: {
           id: req.params.id
@@ -85,10 +90,6 @@ router.get("/edit/:id", withAuth, (req, res) => {
         });
 });
 
-router.get('/create-post', withAuth, (req, res) => {
-    res.render('create-post', {
-        loggedIn: req.session.loggedIn
-    });
-});
+
 
 module.exports = router;
