@@ -1,6 +1,6 @@
 # **MVC-Tech-Blog** ![badge](https://img.shields.io/badge/License-Apache~2.0-brightgreen.svg)  
 
-Deployed Site: <br>
+**Deployed Site:** <br>
 https://vast-retreat-80302.herokuapp.com/
 
 
