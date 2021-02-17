@@ -1,3 +1,5 @@
+$('.alert').hide();
+
 async function loginFormHandler(event) {
     event.preventDefault();
 
@@ -5,6 +7,7 @@ async function loginFormHandler(event) {
     const password = document.querySelector('#password-login').value.trim();
 
     if(email && password) {
+        $('.alert').hide();
         const response = await fetch('/api/users/login', {
             method: 'POST',
             body: JSON.stringify({
@@ -16,8 +19,10 @@ async function loginFormHandler(event) {
         if(response.ok) {
             document.location.replace('/dashboard');
         } else {
-            alert(response.statusText);
+            $('#badLoginAttempt').show();
         }
+    } else {
+        $('#noLoginAttempt').show();
     }
 }
 

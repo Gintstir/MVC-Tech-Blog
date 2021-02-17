@@ -14,6 +14,12 @@
                 <div class="col text-center">
                     <button type="submit" class="btn btn-primary mt-3">Login</button>
                 </div>
+                <div id='noLoginAttempt' class='alert alert-danger' role='alert'>
+                    Please enter your User Email and Password to Login!
+                </div>
+                <div id='badLoginAttempt' class='alert alert-danger' role='alert'>
+                    Your email and/or password were not recognized, please try again!
+                </div>
             </form>                
         </div>
         <br>
@@ -40,5 +46,7 @@
         </div>
     </div>
 </div>
-
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
 <script src="/javascript/login.js"></script>
